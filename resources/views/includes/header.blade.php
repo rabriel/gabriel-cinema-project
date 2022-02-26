@@ -7,10 +7,10 @@
                     <p class="text-muted">Film booking application to demonstrate my understanding and best practices of web development processes, technologies through the following technologies used in this app, UI/UX Design, Bootstrap Frame, CSS, JAVAScript, PHP/Laravel and MySQL.</p>
                 </div>
                 <div class="col-sm-4 offset-md-1 py-4">
-                    <h4 class="text-white">Contact</h4>
+                    <h4 class="text-white">Quick Links</h4>
                     <ul class="list-unstyled">
                         <li><a href="#" class="text-white">Login</a></li>
-                        <li><a href="#" class="text-white">Register</a></li>
+                        <li><a href="javascript:void(0)" class="text-white" data-bs-toggle="modal" data-bs-target="#registerModal">Register</a></li>
                         <li><a href="#" class="text-white">Browse</a></li>
                     </ul>
                 </div>

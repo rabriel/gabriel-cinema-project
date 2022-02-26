@@ -19,6 +19,7 @@ Begin:: Frontend
 *===================================================================================================================*/
 Route::get('/', 'App\Http\Controllers\Frontend\PagesController@index')->name('frontend.index');
 Route::get('/view/{id}', 'App\Http\Controllers\Frontend\PagesController@view')->name('frontend.view');
+Route::post('/user-register', 'App\Http\Controllers\Frontend\PagesController@register')->name('frontend.register');
 
 /*===================================================================================================================
 End:: Frontend
@@ -27,3 +28,7 @@ End:: Frontend
 /*Route::get('/', function () {
     return view('welcome');
 });*/
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

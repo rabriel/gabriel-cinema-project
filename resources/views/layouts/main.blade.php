@@ -36,6 +36,10 @@
 @include('includes.header')
 <!--end::header -->
 
+<!--begin::notifications -->
+@include('includes.notifications')
+<!--begin::notifications -->
+
 <main>
     @yield('content')
 </main>
@@ -48,6 +52,11 @@
 <!--begin::js files -->
 <script src="{{ asset('/assets/plugins/bootstrap/js/bootstrap.bundle.min.js') }}" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <!--end::js files -->
+
+<!--begin::modals -->
+@include('includes.modals')
+ <!--begin::modals -->
+
 </div>
 
 </body>

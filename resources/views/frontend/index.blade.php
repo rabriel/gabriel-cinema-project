@@ -4,14 +4,14 @@
 
 
 @section('content')
-    <section class="py-5 text-center container">
+    <section class="py-2 pb-5 text-center container">
         <div class="row py-lg-5">
             <div class="col-lg-6 col-md-8 mx-auto">
                 <h1 class="fw-light">Now Showing</h1>
                 <p class="lead text-muted">Currently Showing in Cinema 1 and Cinema 2, book your seat now, please not that you need to login to book. You may not be able to cancel you booking 1-hour prior to the show commencement.</p>
                 <p>
-                    <a href="#" class="btn btn-primary my-2">Cinema 1</a>
-                    <a href="#" class="btn btn-secondary my-2">Cinema 2</a>
+                    <a href="javascript:void(0)" class="btn btn-primary my-2" data-bs-toggle="modal" data-bs-target="#registerModal">Register</a>
+                    <a href="#" class="btn btn-secondary my-2">Login</a>
                 </p>
             </div>
         </div>
