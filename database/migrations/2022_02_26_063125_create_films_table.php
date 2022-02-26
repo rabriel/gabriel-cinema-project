@@ -15,11 +15,11 @@ class CreateFilmsTable extends Migration
     {
         Schema::create('films', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('theatre_id')->unsigned();
+            $table->integer('theatre_id');
             $table->string('title');
-            $table->string('description');
+            $table->text('description')->nullable();
             $table->string('duration');
-            $table->string('image');
+            $table->string('image')->nullable();;
             $table->timestamps();
         });
     }

@@ -15,7 +15,7 @@ class CreateTheatresTable extends Migration
     {
         Schema::create('theatres', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('cinema_id')->unsigned();
+            $table->integer('cinema_id');
             $table->string('name');
             $table->integer('seats');
             $table->timestamps();

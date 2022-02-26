@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Film;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,6 +14,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        $this->call(UsersTableSeeder::class);
+        $this->call(CinemaTableSeeder::class);
+        $this->call(TheatreTableSeeder::class);
+        $this->call(FilmTableSeeder::class);
+        $this->call(BookingTableSeeder::class);
+        $this->call(ShowtimeTableSeeder::class);
     }
 }

@@ -15,8 +15,10 @@ class CreateBookingsTable extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('user_id')->unsigned();
-            $table->integer('film_id')->unsigned();
+            $table->integer('user_id');
+            $table->integer('film_id');
+            $table->integer('tickets');
+            $table->string('booking_reference');
             $table->timestamps();
         });
     }
