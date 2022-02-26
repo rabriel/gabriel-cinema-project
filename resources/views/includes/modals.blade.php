@@ -26,11 +26,42 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-primary">Register</button>
+                    <button type="submit" class="btn btn-primary m-auto">Register</button>
                 </div>
             </div>
         </form>
     </div>
 </div>
-<!-- begin:: register modal -->
+<!-- end:: register modal -->
+
+
+<!-- begin:: login modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <form method="post" action="{{ route('login') }}">
+            @csrf
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Login to Book</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-3">
+                        <div class="col-12">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" placeholder="gabriel.oft@gmail.com" name="email" value="{{ old('email') }}">
+                        </div>
+                        <div class="col-md-12">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" name="password">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary m-auto">Register</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- end:: login modal -->

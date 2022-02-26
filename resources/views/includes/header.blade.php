@@ -9,7 +9,7 @@
                 <div class="col-sm-4 offset-md-1 py-4">
                     <h4 class="text-white">Quick Links</h4>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="text-white">Login</a></li>
+                        <li><a href="javascript:void(0)" class="text-white" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a></li>
                         <li><a href="javascript:void(0)" class="text-white" data-bs-toggle="modal" data-bs-target="#registerModal">Register</a></li>
                         <li><a href="#" class="text-white">Browse</a></li>
                     </ul>

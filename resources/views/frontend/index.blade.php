@@ -11,7 +11,7 @@
                 <p class="lead text-muted">Currently Showing in Cinema 1 and Cinema 2, book your seat now, please not that you need to login to book. You may not be able to cancel you booking 1-hour prior to the show commencement.</p>
                 <p>
                     <a href="javascript:void(0)" class="btn btn-primary my-2" data-bs-toggle="modal" data-bs-target="#registerModal">Register</a>
-                    <a href="#" class="btn btn-secondary my-2">Login</a>
+                    <a href="javascript:void(0)" class="btn btn-secondary my-2" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
                 </p>
             </div>
         </div>
