@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Theatre extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['cinema_id', 'name', 'seats'];
+
+    public function cinema(){
+        return $this->belongsTo(Cinema::class);
+    }
 }
