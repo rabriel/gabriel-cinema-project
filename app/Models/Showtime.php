@@ -9,7 +9,7 @@ class Showtime extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['film_id', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+    protected $fillable = ['film_id', 'show_date'];
 
     public function film(){
         return $this->belongsTo(Film::class);

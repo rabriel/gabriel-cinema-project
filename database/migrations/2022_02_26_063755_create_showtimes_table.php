@@ -16,13 +16,7 @@ class CreateShowtimesTable extends Migration
         Schema::create('showtimes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('film_id');
-            $table->date('monday')->nullable();
-            $table->date('tuesday')->nullable();;
-            $table->date('wednesday')->nullable();;
-            $table->date('thursday')->nullable();;
-            $table->date('friday')->nullable();;
-            $table->date('saturday')->nullable();;
-            $table->date('sunday')->nullable();;
+            $table->dateTime('show_date')->nullable();
         });
     }
 

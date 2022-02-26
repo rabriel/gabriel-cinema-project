@@ -21,153 +21,25 @@
         <div class="container">
 
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-5">
+                @foreach($showing as $film)
                 <div class="col">
-                    <div class="card shadow-sm">
-                        <img alt="card image" class="card-img-top" src="{{ asset('/assets/images/films/placeholder.jpg') }}" />
-                        <div class="card-body">
-                            <h4 class="mt-3 text-center">BATMAN, THE</h4>
-                            <p class="card-text mt-4">When the Riddler, a sadistic serial killer, begins murdering key political figures in Gotham, []</p>
+                    <div class="card shadow-sm ">
+                        <img alt="card image" class="card-img-top mt-5" src="{{ asset('/assets/images/films/' . $film['image'] ) }}" />
+                        <div class="card-body px-5 mb-4">
+                            <h4 class="mt-3 text-center text-uppercase">{{ $film['title'] }}</h4>
+                            <p class="card-text mt-4 mb-5">{{ substr($film['description'], 0, 120) }} [...]</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-sm btn-outline-secondary">Book Now</button>
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View Film</button>
+                                    <a href="{{ route('frontend.view', $film['id']) }}" class="btn btn-sm btn-outline-secondary">View Film</a>
                                 </div>
                                 <small class="text-muted">Duration: 1h 55m</small>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="card shadow-sm">
-                        <img alt="card image" class="card-img-top" src="{{ asset('/assets/images/films/placeholder.jpg') }}" />
-                        <div class="card-body">
-                            <h4 class="mt-3 text-center">BATMAN, THE</h4>
-                            <p class="card-text mt-4">When the Riddler, a sadistic serial killer, begins murdering key political figures in Gotham, []</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Book Now</button>
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View Film</button>
-                                </div>
-                                <small class="text-muted">Duration: 1h 55m</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card shadow-sm">
-                        <img alt="card image" class="card-img-top" src="{{ asset('/assets/images/films/placeholder.jpg') }}" />
-                        <div class="card-body">
-                            <h4 class="mt-3 text-center">BATMAN, THE</h4>
-                            <p class="card-text mt-4">When the Riddler, a sadistic serial killer, begins murdering key political figures in Gotham, []</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Book Now</button>
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View Film</button>
-                                </div>
-                                <small class="text-muted">Duration: 1h 55m</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="card shadow-sm">
-                        <img alt="card image" class="card-img-top" src="{{ asset('/assets/images/films/placeholder.jpg') }}" />
-                        <div class="card-body">
-                            <h4 class="mt-3 text-center">BATMAN, THE</h4>
-                            <p class="card-text mt-4">When the Riddler, a sadistic serial killer, begins murdering key political figures in Gotham, []</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Book Now</button>
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View Film</button>
-                                </div>
-                                <small class="text-muted">Duration: 1h 55m</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card shadow-sm">
-                        <img alt="card image" class="card-img-top" src="{{ asset('/assets/images/films/placeholder.jpg') }}" />
-                        <div class="card-body">
-                            <h4 class="mt-3 text-center">BATMAN, THE</h4>
-                            <p class="card-text mt-4">When the Riddler, a sadistic serial killer, begins murdering key political figures in Gotham, []</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Book Now</button>
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View Film</button>
-                                </div>
-                                <small class="text-muted">Duration: 1h 55m</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card shadow-sm">
-                        <img alt="card image" class="card-img-top" src="{{ asset('/assets/images/films/placeholder.jpg') }}" />
-                        <div class="card-body">
-                            <h4 class="mt-3 text-center">BATMAN, THE</h4>
-                            <p class="card-text mt-4">When the Riddler, a sadistic serial killer, begins murdering key political figures in Gotham, []</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Book Now</button>
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View Film</button>
-                                </div>
-                                <small class="text-muted">Duration: 1h 55m</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="card shadow-sm">
-                        <img alt="card image" class="card-img-top" src="{{ asset('/assets/images/films/placeholder.jpg') }}" />
-                        <div class="card-body">
-                            <h4 class="mt-3 text-center">BATMAN, THE</h4>
-                            <p class="card-text mt-4">When the Riddler, a sadistic serial killer, begins murdering key political figures in Gotham, []</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Book Now</button>
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View Film</button>
-                                </div>
-                                <small class="text-muted">Duration: 1h 55m</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card shadow-sm">
-                        <img alt="card image" class="card-img-top" src="{{ asset('/assets/images/films/placeholder.jpg') }}" />
-                        <div class="card-body">
-                            <h4 class="mt-3 text-center">BATMAN, THE</h4>
-                            <p class="card-text mt-4">When the Riddler, a sadistic serial killer, begins murdering key political figures in Gotham, []</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Book Now</button>
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View Film</button>
-                                </div>
-                                <small class="text-muted">Duration: 1h 55m</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card shadow-sm">
-                        <img alt="card image" class="card-img-top" src="{{ asset('/assets/images/films/placeholder.jpg') }}" />
-                        <div class="card-body">
-                            <h4 class="mt-3 text-center">BATMAN, THE</h4>
-                            <p class="card-text mt-4">When the Riddler, a sadistic serial killer, begins murdering key political figures in Gotham, []</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Book Now</button>
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View Film</button>
-                                </div>
-                                <small class="text-muted">Duration: 1h 55m</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                @endforeach
+             </div>
         </div>
     </div>
 @endsection

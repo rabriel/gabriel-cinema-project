@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 Begin:: Frontend
 *===================================================================================================================*/
 Route::get('/', 'App\Http\Controllers\Frontend\PagesController@index')->name('frontend.index');
+Route::get('/view/{id}', 'App\Http\Controllers\Frontend\PagesController@view')->name('frontend.view');
 
 /*===================================================================================================================
 End:: Frontend
