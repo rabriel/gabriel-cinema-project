@@ -32,38 +32,53 @@ class PagesController extends Controller
 
     }
 
-    public  function postBooking(CreateBookingRequest $request){
-
+    public function postBooking(CreateBookingRequest $request)
+    {
         $input = $request->all();
+        //dd($input);
+        //Total Number of Seats Available for The Show
+        $show_capacity = 30;
 
-        //generate booking reference
-        $input['booking_reference'] = strtoupper(Str::random(8));
+        //Total Booked Seats on The Show
+        $current_bookings = Booking::select('tickets')->where('film_id',  $request->get('film_id'))->sum('tickets');
 
-        //Create Booking
-        Booking::create($input);
+        //Total Seats Booked + Requested Tickets
+        $seats_available = $request->get('tickets') + $current_bookings;
 
-        return redirect(route('backend.index'))->with('success', 'Booking Successful');
+        if ($seats_available <= $show_capacity) {
+            //generate booking reference
+            $input['booking_reference'] = strtoupper(Str::random(8));
+            //Create Booking
+            Booking::create($input);
+            return redirect(route('backend.index'))->with('success', 'Booking Successful');
+        } else {
+            $available_ticket = Booking::select('tickets')->where('film_id', $request->get('film_id'))->sum('tickets');
+            $total_remaining = 30 - $available_ticket;
+            $message = "Remaining Available Tickets: " . $total_remaining;
+            return redirect(route('backend.index'))->with('error', 'Show is Fully Booked')->with('message', $message);
+        }
     }
 
-    public function cancelBooking(Request $request, $id){
+    public function cancelBooking(Request $request, $id)
+    {
 
-        $booking =  $request->all();
+        $booking = $request->all();
 
-         //Cancel a Film Booking
+        //Cancel a Film Booking
         $booking = Booking::findorfail($id);
 
 
         //Get Show Start Time
-        $show_start = Booking::where('id',  $id)->pluck('show_time')->first();
+        $show_start = Booking::where('id', $id)->pluck('show_time')->first();
 
         //Add 1 Hour Difference to the Current Time
         $current_time = Carbon::now()->addHours(1);
 
         //If Current Time is 1 Hour Greater Than The Start Time / Cancellation is Not Allowed
-        if($current_time->toDateTimeString() > $show_start ){
+        if ($current_time->toDateTimeString() > $show_start) {
             return redirect(route('backend.index'))->with('error', 'You can only CANCEL your booking 1 hour before commencement');
 
-        }else{
+        } else {
             $booking->delete();
             return redirect(route('backend.index'))->with('success', 'Booking Cancellation Successful');
         }

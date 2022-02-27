@@ -25,6 +25,10 @@
     @if(session()->get('error'))
         <div class="alert alert-danger alert-dismissible animated flipInX" role="alert">
             {{ session()->get('error') }}
+            @if(session()->get('message'))
+            <hr>
+           {{ session()->get('message') }}
+            @endif
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
 @endif
