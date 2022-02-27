@@ -28,8 +28,9 @@ End:: Frontend
 Begin:: Backend
 *===================================================================================================================*/
 Route::get('/bookings', 'App\Http\Controllers\Backend\PagesController@index')->name('backend.index');
-Route::get('/view/{id}', 'App\Http\Controllers\Backend\PagesController@view')->name('backend.view');
+Route::get('/view-booked/{id}', 'App\Http\Controllers\Backend\PagesController@view')->name('backend.view');
 Route::post('/bookings/post-booking', 'App\Http\Controllers\Backend\PagesController@postBooking')->name('backend.post-booking');
+Route::post('/bookings/cancel-booking/{id}', 'App\Http\Controllers\Backend\PagesController@cancelBooking')->name('backend.cancel-booking');
 /*===================================================================================================================
 End:: Backend
 *===================================================================================================================*/

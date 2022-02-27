@@ -39,18 +39,25 @@
                         </thead>
                         <tbody>
                         <!--begin:: Get Film Showtimes -->
-                          <tr>
-                                <td>{{ date('D', (strtotime($booked->show_time)))   }}</td>
-                                <td>{{ date('H:i:s', (strtotime($booked->show_time)))   }}</td>
-                                <td>{{ $booked->cinema->name  }}</td>
-                            </tr>
-                       <!--end:: Get Film Showtimes -->
+                        <tr>
+                            <td>{{ date('D', (strtotime($booked->show_time)))   }}</td>
+                            <td>{{ date('H:i:s', (strtotime($booked->show_time)))   }}</td>
+                            <td>{{ $booked->cinema->name  }}</td>
+                        </tr>
+                        <tr>
+                            <!--begin:: Check If User can Cancel Their Booking -->
+                            <td colspan="3">
+                                <?php $show_start = \Carbon\Carbon::parse($booked->show_time) ?>
+                                <?php $current_time = Carbon\Carbon::now()->addHours(1)  ?>
+                               <strong>{{ $current_time > $show_start ? 'Cancellation UnAvailable' : 'Cancellation Available' }}</strong>
+                           </td>
+                        </tr>
+                        <!--end:: Check If User can Cancel Their Booking -->
                         </tbody>
                     </table>
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
-                          <button type="button" class="btn btn-sm btn-danger" >Cancel Booking</button>
-                           <a href="{{ url()->previous() }}" class="btn btn-sm btn-outline-secondary">Return Back</a>
+                            <a href="{{ url()->previous() }}" class="btn btn-sm btn-outline-secondary">Return Back</a>
                         </div>
                     </div>
 
