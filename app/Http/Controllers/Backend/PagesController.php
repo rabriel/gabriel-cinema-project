@@ -49,23 +49,25 @@ class PagesController extends Controller
 
         $booking =  $request->all();
 
-
-        //Cancel a Film Booking
+         //Cancel a Film Booking
         $booking = Booking::findorfail($id);
 
+
         //Get Show Start Time
-        $show_start = Booking::select('show_time')->where('id', $id)->first();
+        $show_start = Booking::where('id',  $id)->pluck('show_time')->first();
 
         //Add 1 Hour Difference to the Current Time
         $current_time = Carbon::now()->addHours(1);
 
         //If Current Time is 1 Hour Greater Than The Start Time / Cancellation is Not Allowed
-        if($current_time > $show_start ){
-            $booking->delete();
-        }else{
+        if($current_time->toDateTimeString() > $show_start ){
             return redirect(route('backend.index'))->with('error', 'You can only CANCEL your booking 1 hour before commencement');
+
+        }else{
+            $booking->delete();
+            return redirect(route('backend.index'))->with('success', 'Booking Cancellation Successful');
         }
-        return redirect(route('backend.index'))->with('success', 'Booking Cancellation Successful');
+
 
     }
 }

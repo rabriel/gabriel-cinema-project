@@ -37,10 +37,11 @@
                             <img alt="card image" class="card-img-top mt-5" src="{{ asset('/assets/images/films/' . $film->film['image'] ) }}" />
                             <div class="card-body px-5 mb-4">
                                 <h4 class="mt-3 text-center text-uppercase">{{ $film->film['title'] }}</h4>
-                                <p class="card-text mt-4 mb-5">{{ substr($film->film['description'], 0, 120) }} [...]</p>
-                                <div class="d-flex justify-content-between align-items-center">
+
+                                <p class="card-text mt-4 mb-5 text-center"><strong>Booking Reference</strong> <br>{{ $film->booking_reference }}</p>
+                                <div class="d-flex justify-content-center align-items-center">
                                     <div class="btn-group">
-                                        <form class="row g-3" method="post" action="{{ route('backend.cancel-booking',  $film['id']) }}">
+                                        <form  method="post" action="{{ route('backend.cancel-booking',  $film['id']) }}">
                                             @csrf
                                            <button type="submit" class="btn btn-sm btn-danger">Cancel Booking</button>
                                         </form>
