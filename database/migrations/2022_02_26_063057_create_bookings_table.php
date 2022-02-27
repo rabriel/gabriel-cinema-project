@@ -16,9 +16,13 @@ class CreateBookingsTable extends Migration
         Schema::create('bookings', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('user_id');
+            $table->integer('cinema_id');
             $table->integer('film_id');
             $table->integer('tickets');
             $table->string('booking_reference');
+            $table->dateTime('show_time')->nullable();
+            $table->integer('status')->default(1);
+
             $table->timestamps();
         });
     }

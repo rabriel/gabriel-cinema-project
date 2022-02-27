@@ -20,14 +20,19 @@ Begin:: Frontend
 Route::get('/', 'App\Http\Controllers\Frontend\PagesController@index')->name('frontend.index');
 Route::get('/view/{id}', 'App\Http\Controllers\Frontend\PagesController@view')->name('frontend.view');
 Route::post('/user-register', 'App\Http\Controllers\Frontend\PagesController@register')->name('frontend.register');
-
 /*===================================================================================================================
 End:: Frontend
 *===================================================================================================================*/
 
-/*Route::get('/', function () {
-    return view('welcome');
-});*/
+/*===================================================================================================================
+Begin:: Backend
+*===================================================================================================================*/
+Route::get('/bookings', 'App\Http\Controllers\Backend\PagesController@index')->name('backend.index');
+Route::get('/view/{id}', 'App\Http\Controllers\Backend\PagesController@view')->name('backend.view');
+Route::post('/bookings/post-booking', 'App\Http\Controllers\Backend\PagesController@postBooking')->name('backend.post-booking');
+/*===================================================================================================================
+End:: Backend
+*===================================================================================================================*/
 
 Auth::routes();
 

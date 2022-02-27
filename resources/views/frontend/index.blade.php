@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title',  'Browse Movies')
+@section('title',  'Browse Films')
 
 
 @section('content')
@@ -10,9 +10,17 @@
                 <h1 class="fw-light">Now Showing</h1>
                 <p class="lead text-muted">Currently Showing in Cinema 1 and Cinema 2, book your seat now, please not that you need to login to book. You may not be able to cancel you booking 1-hour prior to the show commencement.</p>
                 <p>
-                    <a href="javascript:void(0)" class="btn btn-primary my-2" data-bs-toggle="modal" data-bs-target="#registerModal">Register</a>
-                    <a href="javascript:void(0)" class="btn btn-secondary my-2" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
+                    @guest
+                    <a href="#registerModal" class="btn btn-primary my-2" data-bs-toggle="modal" data-bs-target="#registerModal" data-toggle="modal">Register</a>
+                    <a href="#loginModal" class="btn btn-secondary my-2" data-bs-toggle="modal" data-bs-target="#loginModal" data-toggle="modal">Login</a>
+                    @else
+                        <a href="{{ route('backend.index') }}" class="btn btn-primary my-2" >View Bookings</a>
+                        <a href="{{ route('logout') }}" class="btn btn-danger my-2" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                   @endguest
                 </p>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
             </div>
         </div>
     </section>
@@ -30,10 +38,9 @@
                             <p class="card-text mt-4 mb-5">{{ substr($film['description'], 0, 120) }} [...]</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Book Now</button>
                                     <a href="{{ route('frontend.view', $film['id']) }}" class="btn btn-sm btn-outline-secondary">View Film</a>
                                 </div>
-                                <small class="text-muted">Duration: 1h 55m</small>
+                                <small class="text-muted">Duration: {{ $film['duration'] }}</small>
                             </div>
                         </div>
                     </div>

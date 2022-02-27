@@ -1,5 +1,5 @@
 <!-- begin:: register modal -->
-<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <form method="post" action="{{ route('frontend.register') }}">
             @csrf
@@ -23,6 +23,9 @@
                             <label for="password" class="form-label">Password</label>
                             <input type="password" class="form-control" name="password">
                         </div>
+                        <div class="col-md-12">
+                            <p>Have account already, <a href="#loginModal" data-bs-toggle="modal" data-bs-target="#loginModal" data-bs-dismiss="modal"> click here</a> to login.</p>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -36,13 +39,13 @@
 
 
 <!-- begin:: login modal -->
-<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <form method="post" action="{{ route('login') }}">
             @csrf
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Login to Book</h5>
+                    <h5 class="modal-title " id="exampleModalLabel">Login to Book</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -55,10 +58,14 @@
                             <label for="password" class="form-label">Password</label>
                             <input type="password" class="form-control" name="password">
                         </div>
+
+                        <div class="col-md-12">
+                            <p>No account yet, <a href="#registerModal" data-bs-toggle="modal" data-bs-target="#registerModal" data-bs-dismiss="modal"> click here</a> to register.</p>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary m-auto">Register</button>
+                    <button type="submit" class="btn btn-primary m-auto">Login</button>
                 </div>
             </div>
         </form>

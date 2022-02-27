@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Cinema;
 use App\Models\Film;
 use App\Models\User;
 use App\Http\Requests\UserRegisterRequest;
@@ -13,7 +14,7 @@ class PagesController extends Controller
 {
     public function index()
     {
-
+        //Get Current Showing Films
         $showing = Film::all();
 
         return view('frontend.index', compact('showing'));
@@ -21,7 +22,10 @@ class PagesController extends Controller
 
     public function view($id)
     {
-       $film = Film::where('id', $id)->first();
+
+        //Get Current Showing Film Details
+        $film = Film::where('id', $id)->first();
+
         return view('frontend.view', compact('film'));
 
     }
@@ -38,5 +42,4 @@ class PagesController extends Controller
 
         return redirect(route('frontend.index'))->with('success', 'Registration Successful');
     }
-
 }

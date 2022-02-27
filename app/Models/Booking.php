@@ -9,7 +9,7 @@ class Booking extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'film_id', 'tickets', 'booking_reference'];
+    protected $fillable = ['user_id', 'cinema_id', 'film_id', 'tickets', 'booking_reference', 'show_time', 'status'];
 
     public function user(){
         return $this->belongsTo(User::class);
@@ -17,5 +17,9 @@ class Booking extends Model
 
     public function film(){
         return $this->belongsTo(Film::class);
+    }
+
+    public function cinema(){
+        return $this->belongsTo(Cinema::class);
     }
 }
