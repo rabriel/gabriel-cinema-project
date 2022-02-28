@@ -75,11 +75,12 @@
                         <div class="row g-3">
                             <div class="col-12">
                                 <label for="email" class="form-label">Booked Movies</label>
-                                @foreach($booked as $film)
                                 <select name="id" class="form-select">
+                                    @foreach($booked as $film)
                                     <option value="{{ $film['id'] }}">{{ $film->film['title'] }}@ {{ $film['show_time'] }}</option>
+                                    @endforeach
                                 </select>
-                                @endforeach
+
                             </div>
                             <div class="col-md-12">
                                 <label for="show_time" class="form-label">New Date</label>
@@ -87,7 +88,7 @@
                             </div>
 
                             <div class="col-md-12 text-center">
-                                <p>Please change date to 1 hours prior before the show start. <br><strong>Use current time form your PC.</strong></p>
+                                <p>Please change date to 1 hours prior before the show start. <br><strong>Use current time from your PC.</strong></p>
                             </div>
                         </div>
                     </div>

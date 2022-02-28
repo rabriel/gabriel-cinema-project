@@ -8,7 +8,6 @@
         <div class="row py-lg-5">
             <div class="col-lg-6 col-md-8 mx-auto">
                 <h1 class="fw-bold">Film Details</h1>
-                <p> <a href="/" class="btn btn-primary my-2" >Book More Films</a></p>
             </div>
         </div>
     </section>
