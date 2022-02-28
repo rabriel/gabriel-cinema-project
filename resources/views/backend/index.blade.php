@@ -13,6 +13,8 @@
                 @else
                 <h1 class="fw-bold">Your Booked Films</h1>
                 <p class="lead text-muted">Hi <strong>{{ Auth::user()->name  }},</strong> below is the films that you have booked, you may also cancel your booking 1 hours prior to the show commencement. </p>
+                    <hr>
+                    <p>For Testing Purposes, admin may also tweak booked films dates to hour prior to show start. <a href="javascript:void(0)" class="text-white fw-bold" data-bs-toggle="modal" data-bs-target="#datesModal"> Tweak Dates</a></p>
                 @endif
                 <p>
                     <a href="/" class="btn btn-primary my-2" >Book Films</a>
@@ -56,4 +58,46 @@
            <!--end:: Get Users Booked Films -->
         </div>
     </div>
+
+    <!-- begin:: changes dates modal -->
+    @if($booked->isEmpty())
+    @else
+    <div class="modal fade" id="datesModal" tabindex="-1" aria-labelledby="datesModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <form method="post" action="{{ route('backend.tweak-dates') }}">
+                @csrf
+                <div class="modal-content bg-dark text-white">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-primary py-3" id="exampleModalLabel">Change Dates For Booked Movies</h5>
+                        <button type="button" class="btn-close text-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <label for="email" class="form-label">Booked Movies</label>
+                                @foreach($booked as $film)
+                                <select name="id" class="form-select">
+                                    <option value="{{ $film['id'] }}">{{ $film->film['title'] }}@ {{ $film['show_time'] }}</option>
+                                </select>
+                                @endforeach
+                            </div>
+                            <div class="col-md-12">
+                                <label for="show_time" class="form-label">New Date</label>
+                                <input type="text" class="form-control" name="show_time" placeholder="2022-03-03 20:00:00" value="{{ old('show_time') }}">
+                            </div>
+
+                            <div class="col-md-12 text-center">
+                                <p>Please change date to 1 hours prior before the show start. <br><strong>Use current time form your PC.</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer border-0">
+                        <button type="submit" class="btn btn-primary m-auto border-0 mb-4">Submit Testing Date</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- end:: changes dates modal -->
+    @endif
 @endsection

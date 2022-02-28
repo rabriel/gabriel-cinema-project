@@ -84,4 +84,28 @@ class PagesController extends Controller
 
 
     }
+
+    public function postDates(Request $request)
+    {
+        //Check If User has inserted Date
+        $request->validate([
+            'show_time' => 'required|date_format:Y-m-d H:i:s',
+        ]);
+
+        $input = $request->all();
+
+        //Get Current Users Booked Films
+        $booked = Booking::where('user_id', Auth::user()->id)->get();
+
+        //dd($input);
+
+        $id = $request->get('id');
+
+        $newDate = Booking::findorfail($id);
+
+        $newDate->update($input);
+
+        return redirect(route('backend.index'))->with('success', 'Date has been updated')->with('booked', $booked);
+
+    }
 }

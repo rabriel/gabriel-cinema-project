@@ -23,8 +23,13 @@
     <div class="navbar navbar-dark bg-dark shadow-sm">
         <div class="container">
             <a href="/" class="navbar-brand d-flex align-items-center">
-               {{ env('APP_NAME') }}
+                <span>{{ env('APP_NAME') }}</span>
+                @auth
+                <span class="mx-3">|</span>
+                <span class="badge bg-primary">{{ Auth::user()->name }}</span>
+                @endauth
             </a>
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
 
