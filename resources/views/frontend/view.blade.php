@@ -7,26 +7,26 @@
     <section class="py-5 text-center container">
         <div class="row py-lg-5">
             <div class="col-lg-6 col-md-8 mx-auto">
-                <h1 class="fw-light">Film Details</h1>
+                <h1 class="fw-bold">Film Details</h1>
             </div>
         </div>
     </section>
 
-    <div class="album py-5 bg-light">
+    <div class="film py-5 bg-dark text-white">
         <div class="container">
 
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4 text-center mb-5">
                    <img src="{{ asset('/assets/images/films/' . $film['image'] ) }}" class="img-fluid">
                 </div>
                 <div class="col-md-8">
-                    <h4 class="mt-3 text-uppercase">{{ $film['title'] }}</h4>
+                    <h4 class="mt-3 text-uppercase text-primary mt-4">{{ $film['title'] }}</h4>
                     <hr>
                     {{ $film['description'] }}
                     <hr>
-                    <h4 class="mt-3 text-uppercase">Showtime</h4>
+                    <h4 class="mt-3 text-uppercase text-primary mt-4">Showtime</h4>
                     <br>
-                    <table class="table">
+                    <table class="table text-white">
                         <thead>
                         <tr>
                             <th scope="col">Day</th>
@@ -47,13 +47,13 @@
                       </tbody>
                     </table>
                     <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
+                        <div class="btn-group mt-4">
                             @guest
-                            <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#loginModal">Book Now</button>
+                            <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">Book Now</button>
                             @else
-                                <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="collapse" href="#bookingInfo" role="button" aria-expanded="false" aria-controls="bookingInfo">Book Now</button>
+                                <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="collapse" href="#bookingInfo" role="button" aria-expanded="false" aria-controls="bookingInfo">Book Now</button>
                             @endguest
-                            <a href="{{ url()->previous() }}" class="btn btn-sm btn-outline-secondary">Return Back</a>
+                            <a href="{{ url()->previous() }}" class="btn btn-sm btn-secondary">Return Back</a>
                         </div>
                         <small class="text-muted">Duration: {{ $film['duration'] }}</small>
                     </div>

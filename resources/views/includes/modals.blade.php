@@ -12,12 +12,12 @@
                     <div class="row g-3">
                         <div class="col-md-12">
                             <label for="name" class="form-label">Name</label>
-                            <input type="text" class="form-control" name="name">
+                            <input type="text" class="form-control" name="name" value="{{ old('name') }}">
                         </div>
 
                         <div class="col-12">
                             <label for="email" class="form-label">Email Address</label>
-                            <input type="email" class="form-control" placeholder="gabriel.oft@gmail.com" name="email">
+                            <input type="email" class="form-control" placeholder="gabriel.oft@gmail.com" name="email" value="{{ old('email') }}">
                         </div>
                         <div class="col-md-12">
                             <label for="password" class="form-label">Password</label>

@@ -11,7 +11,7 @@
                     <h1 class="fw-light">No Bookings</h1>
                     <p class="lead text-muted">Hi <strong>{{ Auth::user()->name  }},</strong> looks like you haven’t made any bookings yet, you can easily <strong><a href="/"> click here</a></strong> to start booking your films. </p>
                 @else
-                <h1 class="fw-light">Your Films</h1>
+                <h1 class="fw-bold">Your Booked Films</h1>
                 <p class="lead text-muted">Hi <strong>{{ Auth::user()->name  }},</strong> below is the films that you have booked, you may also cancel your booking 1 hours prior to the show commencement. </p>
                 @endif
                 <p>
@@ -25,7 +25,7 @@
         </div>
     </section>
 
-    <div class="album py-5 bg-light">
+    <div class="films py-5 bg-dark">
         <div class="container">
             <!--begin:: Get Users Booked Films -->
             @if($booked->isEmpty())
@@ -36,8 +36,7 @@
                         <div class="card shadow-sm ">
                             <img alt="card image" class="card-img-top mt-5" src="{{ asset('/assets/images/films/' . $film->film['image'] ) }}" />
                             <div class="card-body px-5 mb-4">
-                                <h4 class="mt-3 text-center text-uppercase">{{ $film->film['title'] }}</h4>
-
+                                <h4 class="mt-3 text-center text-uppercase text-primary fw-bold">{{ $film->film['title'] }}</h4>
                                 <p class="card-text mt-4 mb-5 text-center"><strong>Booking Reference</strong> <br>{{ $film->booking_reference }}</p>
                                 <div class="d-flex justify-content-center align-items-center">
                                     <div class="btn-group">
@@ -45,7 +44,7 @@
                                             @csrf
                                            <button type="submit" class="btn btn-sm btn-danger">Cancel Booking</button>
                                         </form>
-                                        <a href="{{ route('backend.view', $film['id']) }}" class="btn btn-sm btn-outline-secondary">View Film</a>
+                                        <a href="{{ route('backend.view', $film['id']) }}" class="btn btn-sm btn-primary">View Film</a>
                                     </div>
                                 </div>
                             </div>

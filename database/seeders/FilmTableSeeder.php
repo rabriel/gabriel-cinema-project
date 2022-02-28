@@ -33,8 +33,6 @@ class FilmTableSeeder extends Seeder
             'created_at' => new \DateTime()
         ]);
 
-        //Currently Showing on Theater 2 Cinema 2
-
         DB::table('films')->insert([
             'theatre_id'=> 2,
             'title' => 'Cinderella',
@@ -46,6 +44,28 @@ class FilmTableSeeder extends Seeder
 
         DB::table('films')->insert([
             'theatre_id'=> 2,
+            'title' => 'Marry Me',
+            'description' => 'Music superstars Kat Valdez and Bastian are getting married before a global audience of fans. But when Kat learns, seconds before her vows, that Bastian has been unfaithful, she decides to marry Charlie, a stranger in the crowd, instead.',
+            'duration' => '1h 53m',
+            'image' => 'marry-me.jpg',
+            'created_at' => new \DateTime()
+
+        ]);
+
+        //Currently Showing on Theater 2 Cinema 2
+
+        DB::table('films')->insert([
+            'theatre_id'=> 3,
+            'title' => 'Encanto',
+            'description' => 'A young Colombian girl has to face the frustration of being the only member of her family without magical powers.',
+            'duration' => '1h 39m',
+            'image' => 'encanto.jpg',
+            'created_at' => new \DateTime()
+
+        ]);
+
+        DB::table('films')->insert([
+            'theatre_id'=> 3,
             'title' => 'Redeeming Love',
             'description' => 'Sold into prostitution as a child, Angel knows nothing but betrayal. Can her heart ever be mended? Based upon the novel by Francine Rivers.',
             'duration' => '2h 14m',
@@ -53,6 +73,26 @@ class FilmTableSeeder extends Seeder
             'created_at' => new \DateTime()
 
         ]);
-        
+
+        DB::table('films')->insert([
+            'theatre_id'=> 4,
+            'title' => 'Sing 2',
+            'description' => 'Buster Moon and his friends must persuade reclusive rock star Clay Calloway to join them for the opening of a new show.',
+            'duration' => '1h 50m',
+            'image' => 'sing-2.jpg',
+            'created_at' => new \DateTime()
+
+        ]);
+
+        DB::table('films')->insert([
+            'theatre_id'=> 4,
+            'title' => 'Uncharted',
+            'description' => 'The story is a prequel to the games, starring Holland as a younger Drake, showing us details of how he came to meet and befriend Sully.This film has not been classified yet, ',
+            'duration' => '1h 55m',
+            'image' => 'uncharted.jpg',
+            'created_at' => new \DateTime()
+
+        ]);
+
     }
 }

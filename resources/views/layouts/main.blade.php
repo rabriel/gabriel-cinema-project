@@ -28,7 +28,7 @@
     <!-- end:: favicons -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
-<body>
+<body class="bg-primary">
 
 <div class="app-wrapper">
 
