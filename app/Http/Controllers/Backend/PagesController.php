@@ -38,9 +38,8 @@ class PagesController extends Controller
         //dd($input);
         //Total Number of Seats Available for The Show
         $show_capacity = 30;
-
         //Total Booked Seats on The Show
-        $current_bookings = Booking::select('tickets')->where('film_id',  $request->get('film_id'))->sum('tickets');
+        $current_bookings = Booking::select('tickets')->where('film_id',  $request->get('film_id'))->where('show_time', $request->get('show_time'))->sum('tickets');
 
         //Total Seats Booked + Requested Tickets
         $seats_available = $request->get('tickets') + $current_bookings;

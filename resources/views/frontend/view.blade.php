@@ -8,6 +8,7 @@
         <div class="row py-lg-5">
             <div class="col-lg-6 col-md-8 mx-auto">
                 <h1 class="fw-bold">Film Details</h1>
+                <p> <a href="/" class="btn btn-primary my-2" >Book More Films</a></p>
             </div>
         </div>
     </section>
@@ -29,7 +30,7 @@
                     <table class="table text-white">
                         <thead>
                         <tr>
-                            <th scope="col">Day</th>
+                            <th scope="col">Date</th>
                             <th scope="col">Time</th>
                             <th scope="col">Cinema & Theatre</th>
                            </tr>
@@ -38,7 +39,7 @@
                         <!--begin:: Get Film Showtimes -->
                         @foreach($film->showTimes as $showtime)
                             <tr>
-                                <td>{{ date('D', (strtotime($showtime->show_date)))   }}</td>
+                                <td>{{ date('d M Y', (strtotime($showtime->show_date)))   }}</td>
                                 <td>{{ date('H:i:s', (strtotime($showtime->show_date)))   }}</td>
                                 <td>{{ $film->theatre->cinema->name  }} <sup><strong>{{ $film->theatre->name  }}</strong></sup></td>
                             </tr>
@@ -61,7 +62,7 @@
 
                     @else
                     <div class="collapse mt-5" id="bookingInfo">
-                        <div class="card card-body">
+                        <div class="card card-body bg-dark">
                             <form class="row g-3" method="post" action="{{ route('backend.post-booking') }}">
                                 @csrf
                                 <!--begin:: hidden input fields -->
@@ -71,11 +72,10 @@
 
                                 <!--end:: hidden input fields -->
                                 <div class="col-md-10">
-                                    <label for="show_time" class="form-label">Time & Cinema</label>
+                                    <label for="show_time" class="form-label">Choose Time & Cinema</label>
                                     <select name="show_time" class="form-select">
-                                        <option selected>Choose...</option>
                                         @foreach($film->showTimes as $showtime)
-                                            <option value="{{ date($showtime->show_date) }}"> {{ date('D', (strtotime($showtime->show_date)))   }} @ {{ date('H:i:s', (strtotime($showtime->show_date)))   }} in <strong>{{ $film->theatre->cinema->name  }}</strong></option>
+                                            <option value="{{ date($showtime->show_date) }}"> {{ date('d M Y', (strtotime($showtime->show_date)))   }} @ {{ date('H:i:s', (strtotime($showtime->show_date)))   }} in <strong>{{ $film->theatre->cinema->name  }}</strong></option>
                                         @endforeach
                                     </select>
                                 </div>

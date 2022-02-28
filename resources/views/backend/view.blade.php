@@ -7,7 +7,13 @@
     <section class="py-5 text-center container">
         <div class="row py-lg-5">
             <div class="col-lg-6 col-md-8 mx-auto">
-                <h1 class="fw-light">Booked Film Details</h1>
+                <h1 class="fw-bold">Booked Film Details</h1>
+                <p>
+                    <a href="{{ route('logout') }}" class="btn btn-danger my-2" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                </p>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
             </div>
         </div>
     </section>
@@ -32,7 +38,7 @@
                     <table class="table text-white">
                         <thead>
                         <tr>
-                            <th scope="col">Day</th>
+                            <th scope="col">Date</th>
                             <th scope="col">Time</th>
                             <th scope="col">Cinema & Theatre</th>
                         </tr>
@@ -40,7 +46,7 @@
                         <tbody>
                         <!--begin:: Get Film Showtimes -->
                         <tr>
-                            <td>{{ date('D', (strtotime($booked->show_time)))   }}</td>
+                            <td>{{ date('d M Y', (strtotime($booked->show_time)))   }}</td>
                             <td>{{ date('H:i:s', (strtotime($booked->show_time)))   }}</td>
                             <td>{{ $booked->cinema->name  }}</td>
                         </tr>

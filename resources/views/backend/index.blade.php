@@ -25,12 +25,12 @@
         </div>
     </section>
 
-    <div class="films py-5 bg-dark">
+    <div class="py-5 bg-dark">
         <div class="container">
             <!--begin:: Get Users Booked Films -->
             @if($booked->isEmpty())
             @else
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-5">
+                <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 g-3">
                 @foreach($booked as $film)
                     <div class="col">
                         <div class="card shadow-sm ">

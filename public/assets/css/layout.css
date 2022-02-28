@@ -1,12 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
-
-
 :root {
     --bs-font-sans-serif: 'Montserrat', sans-serif;
     --bs-font-monospace: 'Montserrat', sans-serif;
     --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
 }
-
 a{text-decoration: none;}
 .text-muted { color: #2b303d!important;}
 .bg-dark {
@@ -29,9 +26,18 @@ a{text-decoration: none;}
 .navbar-dark .navbar-toggler-icon {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 214, 0, 10%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
-
+.form-control{
+    background-color: transparent!important;
+    color:#fff!important;
+    border-right: 0;
+    border-left: 0;
+    border-top: 0;
+    border-bottom:1px solid #fff!important;
+    border-radius: 0!important;
+    box-shadow:none!important;
+}
+.btn{ border-radius: 0!important; box-shadow:none!important;}
 .text-primary{color:#ffd600!important;}
-
 .card-img-top {
     width: 100%;
     height: 15vw;

@@ -25,17 +25,17 @@
         </div>
     </section>
 
-    <div class="album py-5 bg-dark">
+    <div class="py-5 bg-dark">
         <div class="container">
 
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-5">
+            <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 g-3">
                 @foreach($showing as $film)
                 <div class="col">
                     <div class="card shadow-sm bg-light">
                         <img alt="card image" class="card-img-top mt-5" src="{{ asset('/assets/images/films/' . $film['image'] ) }}" />
                         <div class="card-body px-5 mb-4">
                             <h4 class="mt-3 text-center text-uppercase text-primary fw-bold">{{ $film['title'] }}</h4>
-                            <p class="card-text mt-4 mb-5">{{ substr($film['description'], 0, 80) }} [...]</p>
+                            <p class="card-text mt-4 mb-5">{{ substr($film['description'], 0, 50) }} ...</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                     <a href="{{ route('frontend.view', $film['id']) }}" class="btn btn-sm btn-outline-secondary">View Film</a>
